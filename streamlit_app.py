@@ -3,6 +3,9 @@ import streamlit as st
 import os
 # from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
+import requests  
+import pandas as pd
+
 
 # Write directly to the app
 st.title(":cup_with_straw: Customize Your Smoothie :cup_with_straw:")
@@ -46,7 +49,6 @@ if ingredient_list:
             session.sql(my_insert_stmt).collect()
             st.success('Your Smoothie is ordered, ' + order_name + '!', icon="✅")
 
-import requests  
-import pandas as pd
+
 
 
