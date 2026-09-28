@@ -23,8 +23,11 @@ st.write(
 
 cnx = st.connection("snowflake")
 session = cnx.session()
-my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
+my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'), col("SEARCH_ON")
 # st.dataframe(data=my_dataframe, use_container_width=True)
+pd_df = my_dataframe.topandas()
+sf.dataframe(pd_df)
+st.stop
 
 order_name = st.text_input("Please provide a name for your order")
 st.write(order_name)
