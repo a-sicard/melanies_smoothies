@@ -43,3 +43,7 @@ if ingredient_list:
         if ingredient_string and order_name:
             session.sql(my_insert_stmt).collect()
             st.success('Your Smoothie is ordered, ' + order_name + '!', icon="✅")
+
+import requests  
+smoothiefroot_response = requests.get("[https://my.smoothiefroot.com/api/fruit/watermelon](https://my.smoothiefroot.com/api/fruit/watermelon)")  
+st.text(smoothiefroot_response)
