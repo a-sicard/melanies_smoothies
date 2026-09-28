@@ -4,9 +4,6 @@ import os
 # from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
 
-# Retrieve the current active session in Snowflake
-session = get_active_session()
-
 # Write directly to the app
 st.title(":cup_with_straw: Customize Your Smoothie :cup_with_straw:")
 st.write(
@@ -20,8 +17,6 @@ st.write(
 # )
 
 # st.write("Your favorite fruit is", fav_fruit)
-
-# session = get_active_session()
 
 cnx = st.connection("snowflake")
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
